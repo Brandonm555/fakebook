@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Fakebook Login</title>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='styler.css')}}"/>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+        <img alt="logo" src="/static/fakebook.png"></img>
+        <form class="login" action="/login" method="post">
+            Email<input class="field" type="text" name="email_address"></input>
+            Password<input class="field" type="password" name="password"></input>
+            <input id="Login" type="submit" value="Log In"></input>
+        </form>
+    </div><!-- end of header -->
+    <div class="body">
+    <div class="Info">
+      <h2>Connect with your friends and the world around you on fakebook</h2>
+      <ul>
+        <li><img alt="" src="/static/news.png"></img></li>
+        <li><p><span class="span">See Photos and Updates</span> from friends in News Feed</p></li>
+      </ul>
+      <ul>
+        <li><img alt="" src="/static/time.png"></img></li>
+        <li><p><span class="span">Share What's New</span> in your life on your Timeline</p></li>
+      </ul>
+      <ul>
+        <li><img alt="" src="/static/search.png"></img></li>
+        <li><p><span class="span">Find More</span> with Fakebook Search</p></li>
+      </ul>
+    </div><!-- end of Info -->
+    <div class="signupForm">
+      <form action="/register" method="post">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages%}
+              <p id="alert">{{ message }}</p>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <h1>Sign Up</h1>
+        <h4>It's free and always will be.</h4>
+        <input class="small" type="text" name="first_name" placeholder="First Name"></input>
+        <input class="small" type="text" name="last_name" placeholder="Last Name"></input>
+        <input class="large" type="text" name="email_address" placeholder="email address"></input>
+        <input class="large" type="password" name="password" placeholder="password"></input>
+        <input class="large" type="password" name="confirm_password" placeholder="re-enter password"></input>
+        <input id="SignUp" type="submit" value="Sign Up"></input>
+      </form>
+    </div><!-- end of signupForm -->
+    <div></div>
+  </div><!-- end of body -->
+
+  </div><!-- end of container -->
+
+</body>
+</html>
